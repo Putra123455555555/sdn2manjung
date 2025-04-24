@@ -1,7 +1,10 @@
 import axios from 'axios';
 
 const apiClient = axios.create({
+  //jika ingin menjalankan runbuild maka berikan // pada baseURL ke1 , jika ingin menjalankan di lokal host,, berikan // pada baseURL ke 2
+
   baseURL: 'http://localhost:3000',
+  //baseURL: 'https://api.sdn2manjungwonogiri.sch.id',
   withCredentials: true,
   headers: {
     'Content-Type': 'application/json',

@@ -1,0 +1,20 @@
+RewriteEngine On
+RewriteBase /
+
+# Pengecualian untuk sitemap.xml agar tidak terkena aturan rewrite
+
+RewriteRule ^sitemap\.xml$ - [L]
+
+# Pengecualian untuk file index.html
+
+RewriteRule ^index\.html$ - [L]
+
+# Jika file atau direktori tidak ditemukan, arahkan ke index.html untuk aplikasi React
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+
+# Memastikan MIME type untuk file XML
+
+AddType application/xml .xml
