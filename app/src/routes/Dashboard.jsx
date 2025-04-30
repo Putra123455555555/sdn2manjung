@@ -7,6 +7,7 @@ import KontakSekolah from '../Pages/Dashboard/Kontak/KontakSekolah'; // Mengimpo
 import DataGuru from '../Pages/Dashboard/Guru/DataGuru'; // Mengimpor halaman Data Guru
 import DataGambar from '../Pages/Dashboard/Gambar/DataGambar'; // Mengimpor halaman Data Gambar
 import DataBerita from '../Pages/Dashboard/Berita/DataBerita'; // Mengimpor halaman Data Berita
+import AdminChat from '../Pages/Dashboard/AdminChat/AdminChat';
 
 const DashboardRoutes = () => {
   return (
@@ -36,6 +37,10 @@ const DashboardRoutes = () => {
         {/* Route untuk halaman Data Gambar */}
         <Route path="data-gambar" element={<DashboardLayout />}>
           <Route index element={<DataGambar />} />
+        </Route>
+
+        <Route path="admin-chat" element={<DashboardLayout />}>
+          <Route index element={<AdminChat />} />
         </Route>
 
         {/* Route untuk halaman Data Berita */}

@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 22, 2025 at 02:22 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Waktu pembuatan: 30 Apr 2025 pada 21.17
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,22 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_berita`
+-- Struktur dari tabel `chat`
+--
+
+CREATE TABLE `chat` (
+  `id` int(11) NOT NULL,
+  `socketId` varchar(255) NOT NULL,
+  `sender` enum('visitor','admin') NOT NULL,
+  `message` text NOT NULL,
+  `createdAt` datetime NOT NULL,
+  `updatedAt` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `data_berita`
 --
 
 CREATE TABLE `data_berita` (
@@ -38,7 +53,7 @@ CREATE TABLE `data_berita` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `data_berita`
+-- Dumping data untuk tabel `data_berita`
 --
 
 INSERT INTO `data_berita` (`id`, `kategori`, `title`, `deskripsi`, `img`, `createdAt`, `updatedAt`) VALUES
@@ -59,7 +74,7 @@ INSERT INTO `data_berita` (`id`, `kategori`, `title`, `deskripsi`, `img`, `creat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_gambar`
+-- Struktur dari tabel `data_gambar`
 --
 
 CREATE TABLE `data_gambar` (
@@ -72,7 +87,7 @@ CREATE TABLE `data_gambar` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `data_gambar`
+-- Dumping data untuk tabel `data_gambar`
 --
 
 INSERT INTO `data_gambar` (`id`, `kategori`, `title`, `img`, `createdAt`, `updatedAt`) VALUES
@@ -95,7 +110,7 @@ INSERT INTO `data_gambar` (`id`, `kategori`, `title`, `img`, `createdAt`, `updat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_guru`
+-- Struktur dari tabel `data_guru`
 --
 
 CREATE TABLE `data_guru` (
@@ -108,7 +123,7 @@ CREATE TABLE `data_guru` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `data_guru`
+-- Dumping data untuk tabel `data_guru`
 --
 
 INSERT INTO `data_guru` (`id`, `nama`, `nip`, `img`, `createdAt`, `updatedAt`) VALUES
@@ -127,7 +142,7 @@ INSERT INTO `data_guru` (`id`, `nama`, `nip`, `img`, `createdAt`, `updatedAt`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_sekolah`
+-- Struktur dari tabel `detail_sekolah`
 --
 
 CREATE TABLE `detail_sekolah` (
@@ -149,7 +164,7 @@ CREATE TABLE `detail_sekolah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `detail_sekolah`
+-- Dumping data untuk tabel `detail_sekolah`
 --
 
 INSERT INTO `detail_sekolah` (`id`, `noPendirian`, `noSertif`, `noStatistik`, `npsn`, `jenjangAkreditas`, `thDidirikan`, `thOperasional`, `statusTanah`, `luasTanah`, `statusBangunan`, `luasBangunan`, `totalLahan`, `createdAt`, `updatedAt`) VALUES
@@ -158,7 +173,7 @@ INSERT INTO `detail_sekolah` (`id`, `noPendirian`, `noSertif`, `noStatistik`, `n
 -- --------------------------------------------------------
 
 --
--- Table structure for table `img_slide`
+-- Struktur dari tabel `img_slide`
 --
 
 CREATE TABLE `img_slide` (
@@ -170,7 +185,7 @@ CREATE TABLE `img_slide` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `img_slide`
+-- Dumping data untuk tabel `img_slide`
 --
 
 INSERT INTO `img_slide` (`id`, `profilSekolahId`, `img`, `createdAt`, `updatedAt`) VALUES
@@ -187,7 +202,7 @@ INSERT INTO `img_slide` (`id`, `profilSekolahId`, `img`, `createdAt`, `updatedAt
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kontak_sekolah`
+-- Struktur dari tabel `kontak_sekolah`
 --
 
 CREATE TABLE `kontak_sekolah` (
@@ -205,7 +220,7 @@ CREATE TABLE `kontak_sekolah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kontak_sekolah`
+-- Dumping data untuk tabel `kontak_sekolah`
 --
 
 INSERT INTO `kontak_sekolah` (`id`, `alamat`, `linkMaps`, `telepon`, `email`, `linkFacebook`, `linkTwitter`, `linkInstagram`, `createdAt`, `updatedAt`, `linkPpdb`) VALUES
@@ -214,7 +229,7 @@ INSERT INTO `kontak_sekolah` (`id`, `alamat`, `linkMaps`, `telepon`, `email`, `l
 -- --------------------------------------------------------
 
 --
--- Table structure for table `misi`
+-- Struktur dari tabel `misi`
 --
 
 CREATE TABLE `misi` (
@@ -226,7 +241,7 @@ CREATE TABLE `misi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `misi`
+-- Dumping data untuk tabel `misi`
 --
 
 INSERT INTO `misi` (`id`, `profilSekolahId`, `text`, `createdAt`, `updatedAt`) VALUES
@@ -238,7 +253,7 @@ INSERT INTO `misi` (`id`, `profilSekolahId`, `text`, `createdAt`, `updatedAt`) V
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profil_sekolah`
+-- Struktur dari tabel `profil_sekolah`
 --
 
 CREATE TABLE `profil_sekolah` (
@@ -256,7 +271,7 @@ CREATE TABLE `profil_sekolah` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `profil_sekolah`
+-- Dumping data untuk tabel `profil_sekolah`
 --
 
 INSERT INTO `profil_sekolah` (`id`, `namaSekolah`, `motto`, `kepalaSekolah`, `tentang`, `tujuan`, `strategi`, `visi`, `strukturImg`, `createdAt`, `updatedAt`) VALUES
@@ -265,7 +280,7 @@ INSERT INTO `profil_sekolah` (`id`, `namaSekolah`, `motto`, `kepalaSekolah`, `te
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -279,68 +294,74 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`, `refreshToken`, `createdAt`, `updatedAt`) VALUES
-(1, 'adminsdn2manjung', 'admin@gmail.com', '$2b$10$oDQBzFeBN/t/jI3uVDgsuOgJI9uN10MmzeoX/pA8hL6mBMSE7QAjK', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbnNkbjJtYW5qdW5nIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDUzMTg4NzMsImV4cCI6MTc0NTQwNTI3M30.-vX_iSN5TrMBlIZ2JJj7pVJuNz_qRWX6TgKMq1jpf8M', '2025-04-09 07:02:18', '2025-04-22 10:47:53');
+(1, 'adminsdn2manjung', 'admin@gmail.com', '$2b$10$oDQBzFeBN/t/jI3uVDgsuOgJI9uN10MmzeoX/pA8hL6mBMSE7QAjK', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJhZG1pbnNkbjJtYW5qdW5nIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJpYXQiOjE3NDYwMzk3NDAsImV4cCI6MTc0NjEyNjE0MH0._ZP4gzQwkmbKgOQL_26Px4zuza1rR-BhoN63RIkaD8M', '2025-04-09 07:02:18', '2025-04-30 19:02:20');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `data_berita`
+-- Indeks untuk tabel `chat`
+--
+ALTER TABLE `chat`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `data_berita`
 --
 ALTER TABLE `data_berita`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `data_gambar`
+-- Indeks untuk tabel `data_gambar`
 --
 ALTER TABLE `data_gambar`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `data_guru`
+-- Indeks untuk tabel `data_guru`
 --
 ALTER TABLE `data_guru`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detail_sekolah`
+-- Indeks untuk tabel `detail_sekolah`
 --
 ALTER TABLE `detail_sekolah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `img_slide`
+-- Indeks untuk tabel `img_slide`
 --
 ALTER TABLE `img_slide`
   ADD PRIMARY KEY (`id`),
   ADD KEY `profilSekolahId` (`profilSekolahId`);
 
 --
--- Indexes for table `kontak_sekolah`
+-- Indeks untuk tabel `kontak_sekolah`
 --
 ALTER TABLE `kontak_sekolah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `misi`
+-- Indeks untuk tabel `misi`
 --
 ALTER TABLE `misi`
   ADD PRIMARY KEY (`id`),
   ADD KEY `profilSekolahId` (`profilSekolahId`);
 
 --
--- Indexes for table `profil_sekolah`
+-- Indeks untuk tabel `profil_sekolah`
 --
 ALTER TABLE `profil_sekolah`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -351,78 +372,106 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `username_3` (`username`),
   ADD UNIQUE KEY `email_3` (`email`),
   ADD UNIQUE KEY `username_4` (`username`),
-  ADD UNIQUE KEY `email_4` (`email`);
+  ADD UNIQUE KEY `email_4` (`email`),
+  ADD UNIQUE KEY `username_5` (`username`),
+  ADD UNIQUE KEY `email_5` (`email`),
+  ADD UNIQUE KEY `username_6` (`username`),
+  ADD UNIQUE KEY `email_6` (`email`),
+  ADD UNIQUE KEY `username_7` (`username`),
+  ADD UNIQUE KEY `email_7` (`email`),
+  ADD UNIQUE KEY `username_8` (`username`),
+  ADD UNIQUE KEY `email_8` (`email`),
+  ADD UNIQUE KEY `username_9` (`username`),
+  ADD UNIQUE KEY `email_9` (`email`),
+  ADD UNIQUE KEY `username_10` (`username`),
+  ADD UNIQUE KEY `email_10` (`email`),
+  ADD UNIQUE KEY `username_11` (`username`),
+  ADD UNIQUE KEY `email_11` (`email`),
+  ADD UNIQUE KEY `username_12` (`username`),
+  ADD UNIQUE KEY `email_12` (`email`),
+  ADD UNIQUE KEY `username_13` (`username`),
+  ADD UNIQUE KEY `email_13` (`email`),
+  ADD UNIQUE KEY `username_14` (`username`),
+  ADD UNIQUE KEY `email_14` (`email`),
+  ADD UNIQUE KEY `username_15` (`username`),
+  ADD UNIQUE KEY `email_15` (`email`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `data_berita`
+-- AUTO_INCREMENT untuk tabel `chat`
+--
+ALTER TABLE `chat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `data_berita`
 --
 ALTER TABLE `data_berita`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
--- AUTO_INCREMENT for table `data_gambar`
+-- AUTO_INCREMENT untuk tabel `data_gambar`
 --
 ALTER TABLE `data_gambar`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `data_guru`
+-- AUTO_INCREMENT untuk tabel `data_guru`
 --
 ALTER TABLE `data_guru`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `detail_sekolah`
+-- AUTO_INCREMENT untuk tabel `detail_sekolah`
 --
 ALTER TABLE `detail_sekolah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `img_slide`
+-- AUTO_INCREMENT untuk tabel `img_slide`
 --
 ALTER TABLE `img_slide`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `kontak_sekolah`
+-- AUTO_INCREMENT untuk tabel `kontak_sekolah`
 --
 ALTER TABLE `kontak_sekolah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `misi`
+-- AUTO_INCREMENT untuk tabel `misi`
 --
 ALTER TABLE `misi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `profil_sekolah`
+-- AUTO_INCREMENT untuk tabel `profil_sekolah`
 --
 ALTER TABLE `profil_sekolah`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `img_slide`
+-- Ketidakleluasaan untuk tabel `img_slide`
 --
 ALTER TABLE `img_slide`
   ADD CONSTRAINT `img_slide_ibfk_1` FOREIGN KEY (`profilSekolahId`) REFERENCES `profil_sekolah` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `misi`
+-- Ketidakleluasaan untuk tabel `misi`
 --
 ALTER TABLE `misi`
   ADD CONSTRAINT `misi_ibfk_1` FOREIGN KEY (`profilSekolahId`) REFERENCES `profil_sekolah` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

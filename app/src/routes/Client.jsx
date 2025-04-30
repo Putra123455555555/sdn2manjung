@@ -5,7 +5,9 @@ import { Routes, Route } from 'react-router-dom'; // Mengimpor Routes dan Route 
 import Navbar from '@/Components/Navbar'; // Navbar untuk navigasi
 import Footer from '@/Components/Footer'; // Footer untuk bagian bawah halaman
 import ScrollToTop from '@/Components/ScrollToTop'; // Fitur untuk menggulir ke atas saat berpindah halaman
-import CrispChat from '@/Components/CrispChat'; // Integrasi fitur live chat Crisp
+import Chat from '../Components/Chat';
+//import CrispChat from '@/Components/CrispChat'; // Integrasi fitur live chat Crisp
+//import TidioChat from '@/Components/TidioChat'; // import TidioChat
 
 // Mengimpor komponen halaman utama
 import LandingPage from '@/Components/Landing'; // Halaman utama website
@@ -20,6 +22,7 @@ import Fasilitas from '@/pages/Fasilitas'; // Halaman fasilitas sekolah
 import Ppdb from '@/pages/PPDB'; // Halaman Penerimaan Peserta Didik Baru (PPDB)
 import Struktur from '@/pages/Struktur'; // Halaman struktur organisasi sekolah
 import ErrorPage from '@/pages/Error'; // Halaman error untuk menangani rute yang tidak ditemukan
+import ChatWidget from '../Components/Chat';
 
 // Komponen utama untuk mengelola routing halaman di sisi klien
 const Client = () => {
@@ -43,7 +46,8 @@ const Client = () => {
         <Route path="/struktur" element={<Struktur />} /> {/* Rute untuk halaman struktur organisasi */}
         <Route path="*" element={<ErrorPage />} /> {/* Rute default jika halaman tidak ditemukan */}
       </Routes>
-      <CrispChat /> {/* Menampilkan fitur live chat pada setiap halaman */}
+      {/* <TidioChat /> Menampilkan fitur live chat pada setiap halaman */}
+      <ChatWidget />
       <Footer /> {/* Menampilkan footer di setiap halaman */}
     </div>
   );
